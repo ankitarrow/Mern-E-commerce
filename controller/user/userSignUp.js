@@ -43,15 +43,7 @@ async function userSignUpController(req,res){
         }
         const userData = new userModel(payload)
         const saveUser = await userData.save()
-          const message = `Hi, ${name}! Welcome to our website.`;
-          const data = {
-            to: email,
-            text: "Hey User",
-            subject: "Welcome message",
-            htm: message,
-          };
-          await sendEmail(data);
-         
+          
         res.status(201).json({
             data : saveUser,
             success : true,
